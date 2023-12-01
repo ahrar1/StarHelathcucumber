@@ -1,0 +1,20 @@
+Feature: Test StarHealth Page on Browser
+
+
+  Scenario Outline: Test for getting quote
+    Given I am on StarHeatlth HomePage
+    Then i enter name as '<name>' on the page
+    And I enter mobileNumber as '<number>' on the page
+    And i enter pin code as '<code>' on the page
+    
+   
+
+    Examples: 
+      | name       | number|     code|
+      | Khan       | 7064131819|  751024|
+		
+    Scenario: 
+       Then i click on plans
+       Then i click on star logo
+       Then i navigate 
+       And i close the browser
