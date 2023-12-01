@@ -1,0 +1,59 @@
+package StepProject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
+public class StepStarHealth {
+	
+	
+	@Given("I am on StarHeatlth HomePage")
+	public void i_am_on_star_heatlth_home_page() {
+	   System.out.println("I am on star health home page");
+	}
+
+	@Then("i enter name as {string} on the page")
+	public void i_enter_name_as_on_the_page(String name) {
+		BaseHook.driver.findElement(By.xpath("//input[@id='name']")).sendKeys(name);
+	}
+
+	@Then("I enter mobileNumber as {string} on the page")
+	public void i_enter_mobile_number_as_on_the_page(String number) {
+		BaseHook.driver.findElement(By.xpath("//input[@id='phoneNumber']")).sendKeys(number);
+	}
+
+	@Then("i enter pin code as {string} on the page")
+	public void i_enter_pin_code_as_on_the_page(String code) {
+		BaseHook.driver.findElement(By.xpath("//input[@id='pinCode']")).sendKeys(code);
+	}
+
+	@Then("i click on plans")
+	public void i_click_on_plans() {
+		BaseHook.driver.findElement(By.xpath("//a[text()='Health Insurance']")).click();
+	}
+
+	
+
+	@Then("i click on star logo")
+	public void i_click_on_star_logo() {
+		
+		BaseHook.driver.findElement(By.xpath("//*[@id=\"__next\"]/div/div[1]/header/div[2]/div[1]/span/span/img"));
+		
+	}
+
+	@Then("i navigate")
+	public void i_navigate() {
+		
+		BaseHook.driver.navigate();	}
+
+	@Then("i close the browser")
+	public void i_close_the_browser() {
+		BaseHook.driver.close();
+	    
+	}
+
+
+}
