@@ -1,0 +1,67 @@
+package StepProject;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
+
+public class BaseHook {
+	
+	public static WebDriver driver;
+
+	//System.setProperty("webdriver.gecko.driver","D://Selenium Environment//Drivers//geckodriver.exe"); 
+    //WebDriver driver = new FirefoxDriver();
+	 JavascriptExecutor js = (JavascriptExecutor) driver;
+	
+	
+	
+	@Before(order=0)
+	public void openBrowser() {
+		System.out.println("opening browser");
+		driver = new FirefoxDriver();
+	}
+	
+	@Before(order=1)
+	public void manageWindow() {
+		
+		//driver.manage().deleteAllCookies();
+		driver.manage().window();
+	}
+	@Before(order=2)
+	public  void openUrl() {
+		driver.get("https://www.starhealth.in/");
+	}
+	
+	@BeforeStep
+	public void stepStart() {
+		System.out.println("The step has started execution");
+	}
+	
+	@AfterStep
+	public void stepEnd() {
+		System.out.println("The step has complted execution");
+	}
+	
+	
+	
+	@After(order=1)
+	public void captureTitle() {
+		
+		System.out.println(driver.getTitle());
+	}
+	
+	/*After(order=2,value="@functional")
+	public void closeBrowser() {
+		driver.close();
+	}*/
+	@After(order=3)
+	public void TestCompleteMesage() {
+		System.out.println("test scenario is completed");
+	}
+
+
+}
